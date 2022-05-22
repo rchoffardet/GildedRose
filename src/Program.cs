@@ -5,7 +5,7 @@ namespace App
     public class Program
     {
         public static IList<Item> Items;
-        public static void Main(string[] args)
+        public static void Main(int iterations)
         {
             Items = new List<Item>
             {
@@ -22,7 +22,10 @@ namespace App
                 new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
 
-            UpdateQuality();
+            for(var i = 0; i < iterations; i++)
+            {
+                UpdateQuality();
+            }
         }
 
         public static void UpdateQuality()
