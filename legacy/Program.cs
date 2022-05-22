@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace App
+namespace Legacy
 {
     public class Program
     {
