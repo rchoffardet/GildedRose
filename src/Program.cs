@@ -38,45 +38,34 @@ namespace App
 
         public int SellIn { get; set; }
 
-        public int Quality { get; set; }
+        public Quality Quality { get; set; }
 
         public void UpdateQuality()
         {
             if (this.Name != "Aged Brie" && this.Name != "Backstage passes to a TAFKAL80ETC concert")
             {
-                if (this.Quality > 0)
+                if (this.Name != "Sulfuras, Hand of Ragnaros")
                 {
-                    if (this.Name != "Sulfuras, Hand of Ragnaros")
-                    {
-                        this.Quality = this.Quality - 1;
-                    }
+                    this.Quality--;
                 }
             }
             else
             {
-                if (this.Quality < 50)
+                this.Quality++;
+
+                if (this.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    this.Quality = this.Quality + 1;
-
-                    if (this.Name == "Backstage passes to a TAFKAL80ETC concert")
+                    if (this.SellIn < 11)
                     {
-                        if (this.SellIn < 11)
-                        {
-                            if (this.Quality < 50)
-                            {
-                                this.Quality = this.Quality + 1;
-                            }
-                        }
+                        this.Quality++;
+                    }
 
-                        if (this.SellIn < 6)
-                        {
-                            if (this.Quality < 50)
-                            {
-                                this.Quality = this.Quality + 1;
-                            }
-                        }
+                    if (this.SellIn < 6)
+                    {
+                        this.Quality++;
                     }
                 }
+                
             }
 
             if (this.Name != "Sulfuras, Hand of Ragnaros")
@@ -90,28 +79,21 @@ namespace App
                 {
                     if (this.Name != "Backstage passes to a TAFKAL80ETC concert")
                     {
-                        if (this.Quality > 0)
+                        if (this.Name != "Sulfuras, Hand of Ragnaros")
                         {
-                            if (this.Name != "Sulfuras, Hand of Ragnaros")
-                            {
-                                this.Quality = this.Quality - 1;
-                            }
+                            this.Quality--;
                         }
                     }
                     else
                     {
-                        this.Quality = this.Quality - this.Quality;
+                        this.Quality = 0;
                     }
                 }
                 else
                 {
-                    if (this.Quality < 50)
-                    {
-                        this.Quality = this.Quality + 1;
-                    }
+                    this.Quality++;
                 }
             }
         }
     }
-
 }
