@@ -34,11 +34,6 @@ namespace App
                 
             }
 
-            if (this.Name != "Sulfuras, Hand of Ragnaros")
-            {
-                this.SellIn = this.SellIn - 1;
-            }
-
             if (this.SellIn < 0)
             {
                 if (this.Name != "Aged Brie")
@@ -64,6 +59,14 @@ namespace App
             if(this.Type != ItemType.Legendary)
             {
                 this.Quality--;
+            }
+        }
+
+        public void UpdateSellIn()
+        {
+            if(this.Type != ItemType.Legendary)
+            {
+                this.SellIn--;
             }
         }
     }

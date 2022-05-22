@@ -26,6 +26,7 @@ namespace App
             {
                 foreach(var item in Items)
                 {
+                    item.UpdateSellIn();
                     item.UpdateQuality();
                 }
             }
