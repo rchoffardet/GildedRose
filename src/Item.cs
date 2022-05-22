@@ -11,11 +11,7 @@ namespace App
 
         public void UpdateQuality()
         {
-            if (this.Name != "Aged Brie" && this.Name != "Backstage passes to a TAFKAL80ETC concert")
-            {
-                this.DecrementQuality();
-            }
-            else
+            if (this.Type == ItemType.ImprovesItself)
             {
                 this.Quality++;
 
@@ -31,6 +27,10 @@ namespace App
                         this.Quality++;
                     }
                 }
+            }
+            else
+            {
+                this.DecrementQuality();
                 
             }
 
@@ -74,6 +74,7 @@ namespace App
     public enum ItemType
     {
         Other,
-        Legendary
+        Legendary,
+        ImprovesItself
     }
 }
