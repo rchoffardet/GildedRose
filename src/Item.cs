@@ -9,7 +9,7 @@ namespace App
 
         public Quality Quality { get; set; }
 
-        public void UpdateQuality()
+        public virtual void UpdateQuality()
         {
             if (this.Type == ItemType.ImprovesItself)
             {
@@ -56,18 +56,12 @@ namespace App
 
         public void DecrementQuality()
         {
-            if(this.Type != ItemType.Legendary)
-            {
-                this.Quality--;
-            }
+            this.Quality--;
         }
 
-        public void UpdateSellIn()
+        public virtual void UpdateSellIn()
         {
-            if(this.Type != ItemType.Legendary)
-            {
-                this.SellIn--;
-            }
+            this.SellIn--;
         }
     }
 
@@ -76,5 +70,18 @@ namespace App
         Other,
         Legendary,
         ImprovesItself
+    }
+
+    public class LegendaryItem : Item
+    {
+        public override void UpdateQuality()
+        {
+            // do nothing
+        }
+
+        public override void UpdateSellIn()
+        {
+            // do nothing
+        }
     }
 }

@@ -8,12 +8,14 @@ namespace tests;
 public class ItemTest
 {
     [Test]
-    public void Legendary_item_cannot_lose_quality()
+    public void Legendary_item_cannot_lose_quality_nor_sellin()
     {
-        var it = new Item { Type = ItemType.Legendary, Quality = 10};
-        it.DecrementQuality();
+        var it = new LegendaryItem { Quality = 10, SellIn = 10};
+        it.UpdateQuality();
+        it.UpdateSellIn();
 
         Assert.That(it.Quality.value, Is.EqualTo(10));
+        Assert.That(it.SellIn, Is.EqualTo(10));
     }
 
 }
