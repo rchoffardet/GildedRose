@@ -1,4 +1,5 @@
 using App;
+using App.Items;
 using NUnit.Framework;
 
 namespace tests;
