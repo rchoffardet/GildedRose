@@ -39,9 +39,10 @@ Pour clarifier les choses, la qualité d'un objet ne peut jamais dépasser 50, m
 
 - Installer le [SDK dotnet 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 - Installer l'extension [C# pour VScode](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+  - Activer [l'option ".NET moderne"](https://www.strathweb.com/2022/01/hello-omnisharp-on-net-6-0/)
 - Se déplacer dans le projet de test : `cd tests`
 - Lancer l'exécution des tests en live `dotnet watch test`
-- 
+- Enjoy !
 
 
 ## En savoir plus
