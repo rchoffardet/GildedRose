@@ -23,9 +23,4 @@ public class TicketItem : Item
             }
         }
     }
-
-    protected override void UpdateSellIn()
-    {
-        base.UpdateSellIn();
-    }
 }
