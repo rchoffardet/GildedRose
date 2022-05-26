@@ -84,4 +84,22 @@ namespace App
             // do nothing
         }
     }
+
+    public class CheeseItem : Item
+    {
+        public override void UpdateQuality()
+        {
+            this.Quality++;
+
+            if(this.SellIn < 0)
+            {
+                this.Quality++;
+            }
+        }
+
+        public override void UpdateSellIn()
+        {
+            base.UpdateSellIn();
+        }
+    }
 }
