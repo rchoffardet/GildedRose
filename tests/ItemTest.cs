@@ -1,4 +1,5 @@
 using App;
+using App.Items;
 using NUnit.Framework;
 
 namespace tests;
@@ -11,8 +12,7 @@ public class ItemTest
     public void Legendary_item_cannot_lose_quality_nor_sellin()
     {
         var it = new LegendaryItem { Quality = 10, SellIn = 10};
-        it.UpdateQuality();
-        it.UpdateSellIn();
+        it.Update();
 
         Assert.That(it.Quality.value, Is.EqualTo(10));
         Assert.That(it.SellIn, Is.EqualTo(10));

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using App.Items;
 
 namespace App
 {
@@ -21,8 +22,7 @@ namespace App
             {
                 foreach(var item in Items)
                 {
-                    item.UpdateSellIn();
-                    item.UpdateQuality();
+                    item.Update();
                 }
             }
         }

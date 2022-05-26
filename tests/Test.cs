@@ -1,4 +1,4 @@
-using AppItem = App.Item;
+using AppItem = App.Items.Item;
 using LegacyItem = Legacy.Item;
 using NUnit.Framework;
 
