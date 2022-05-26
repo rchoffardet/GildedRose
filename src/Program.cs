@@ -18,7 +18,6 @@ namespace App
                         Name = "Backstage passes to a TAFKAL80ETC concert",
                         SellIn = 15,
                         Quality = 20,
-                        Type = ItemType.ImprovesItself
                     },
                 new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
