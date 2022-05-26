@@ -10,41 +10,12 @@ namespace App
 
         public virtual void UpdateQuality()
         {
-            if (this.Name == "Backstage passes to a TAFKAL80ETC concert")
-            {
-                this.Quality++;
-
-                if (this.SellIn < 11)
-                {
-                    this.Quality++;
-                }
-
-                if (this.SellIn < 6)
-                {
-                    this.Quality++;
-                }
-            }
-            else
-            {
-                this.DecrementQuality();
-            }
-
+            this.Quality--;
+            
             if (this.SellIn < 0)
             {
-                if (this.Name == "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    this.Quality = 0;
-                }
-                else
-                {
-                    this.DecrementQuality();
-                }
+                this.Quality--;
             }
-        }
-
-        public void DecrementQuality()
-        {
-            this.Quality--;
         }
 
         public virtual void UpdateSellIn()
@@ -75,6 +46,36 @@ namespace App
             if(this.SellIn < 0)
             {
                 this.Quality++;
+            }
+        }
+
+        public override void UpdateSellIn()
+        {
+            base.UpdateSellIn();
+        }
+    }
+
+    public class TicketItem : Item
+    {
+        public override void UpdateQuality()
+        {
+            if (this.SellIn < 0)
+            {
+                this.Quality = 0;
+            }
+            else
+            {
+                this.Quality++;
+
+                if (this.SellIn < 11)
+                {
+                    this.Quality++;
+                }
+
+                if (this.SellIn < 6)
+                {
+                    this.Quality++;
+                }
             }
         }
 
