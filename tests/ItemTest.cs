@@ -9,14 +9,20 @@ namespace tests;
 public class ItemTest
 {
     [Test]
-    public void Item_cannot_lose_quality_and_sellin()
+    public void Item_lose_quality_and_sellin_and_twice_where_sellin_is_negative()
     {
-        var it = new Item{ Quality = 10, SellIn = 10 };
-        it.Update();
+        var fresh = new Item{ Quality = 10, SellIn = 10 };
+        fresh.Update();
+
+        Assert.That(fresh.Quality.value, Is.EqualTo(9));
+        Assert.That(fresh.SellIn, Is.EqualTo(9));
 
         
-        Assert.That(it.Quality.value, Is.EqualTo(9));
-        Assert.That(it.SellIn, Is.EqualTo(9));
+        var stalled = new Item{ Quality = 10, SellIn = -1 };
+        stalled.Update();
+
+        Assert.That(stalled.Quality.value, Is.EqualTo(8));
+        Assert.That(stalled.SellIn, Is.EqualTo(-2));
     }
 
     [Test]
@@ -71,5 +77,22 @@ public class ItemTest
 
         Assert.That(closest.Quality.value, Is.EqualTo(13));
         Assert.That(closest.SellIn, Is.EqualTo(4));
+    }
+
+    [Test]
+    public void Conjured_item_loses_twice_as_quality_as_regular()
+    {
+        var fresh = new ConjuredItem{ Quality = 10, SellIn = 10 };
+        fresh.Update();
+
+        Assert.That(fresh.Quality.value, Is.EqualTo(8));
+        Assert.That(fresh.SellIn, Is.EqualTo(9));
+
+        
+        var stalled = new ConjuredItem{ Quality = 10, SellIn = -1 };
+        stalled.Update();
+
+        Assert.That(stalled.Quality.value, Is.EqualTo(6));
+        Assert.That(stalled.SellIn, Is.EqualTo(-2));
     }
 }

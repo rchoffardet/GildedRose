@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\src\App.csproj" />
-    <ProjectReference Include="..\legacy\Legacy.csproj" />
   </ItemGroup>
 
 </Project>
